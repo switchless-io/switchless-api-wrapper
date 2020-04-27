@@ -1,0 +1,24 @@
+{
+  "name": "switchless-api-wrapper",
+  "version": "1.1.0",
+  "description": "As the name suggests that is a simple api wrapper. Wrap your API backend build with switchless and others can make API requests in a simple manner.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/switchless-io/switchless-api-wrapper.git"
+  },
+  "author": "Alex J V <alexjv89@gmail.com> (www.echoalex.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/switchless-io/switchless-api-wrapper/issues"
+  },
+  "homepage": "https://github.com/switchless-io/switchless-api-wrapper#readme",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "query-string": "^6.12.1",
+    "request": "^2.88.2"
+  }
+}

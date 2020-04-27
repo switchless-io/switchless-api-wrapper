@@ -28,7 +28,7 @@ In the previous case, you need to think about implementation logic while thinkin
 Initial setup
 ```
 var SwitchlessAPIWrapper = require('switchless-api-wrapper');
-var options = {
+var settings = {
 	base_url:'https://app.mralbert.in/apis/v1',
 	auth:{
 		type:'secret_key',
@@ -45,9 +45,10 @@ var options = {
 	query:{
 		// query params that you want to include in all requests
 	},
-	timeout:60000; in milli seconds
+	timeout:60000, // in milli seconds
+	parse_body:true, // defaults to true
 }
-var api = SwitchlessAPIWrapper(options);
+var api = new SwitchlessAPIWrapper(options);
 
 ```
 
@@ -72,3 +73,12 @@ api.request(options,function(err,response){
 ### Supports multiple authentication strategies (coming soon)
 
 For now the package supports master secret key specified via query params. 
+
+
+settings 
+- query
+- headers
+- body
+- parse_body
+- base_url
+- timeout
