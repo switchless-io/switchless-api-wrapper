@@ -46,7 +46,7 @@ Wrapper.prototype={
 			full_options.headers=headers;
 		var body = merge(this.body, options.body);
 		if(body && Object.keys(body).length)
-			full_options.body=body;
+			full_options.body=JSON.stringify(body);
 		var parse_body = this.parse_body;
 		// making the request
 		request(full_options, function (error, response) { 
