@@ -51,7 +51,7 @@ Wrapper.prototype={
 		// making the request
 		request(full_options, function (error, response) { 
 			if (error) callback(error);
-			var body = JSON.parse(response.body);
+			// var body = JSON.parse(response.body);
 			if(parse_body)
 				response.body=JSON.parse(response.body);
 			// console.log(body);
