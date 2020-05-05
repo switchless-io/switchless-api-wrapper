@@ -52,7 +52,7 @@ Wrapper.prototype={
 		request(full_options, function (error, response) { 
 			if (error) callback(error);
 			// var body = JSON.parse(response.body);
-			if(parse_body)
+			if(parse_body && response.body)
 				response.body=JSON.parse(response.body);
 			// console.log(body);
 			// if(body.length==0)
