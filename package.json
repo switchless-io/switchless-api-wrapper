@@ -1,6 +1,6 @@
 {
   "name": "switchless-api-wrapper",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "As the name suggests that is a simple api wrapper. Wrap your API backend build with switchless and others can make API requests in a simple manner.",
   "main": "index.js",
   "scripts": {

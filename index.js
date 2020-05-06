@@ -29,7 +29,7 @@ function Wrapper (settings){
 Wrapper.prototype={
 	constructor:Wrapper,
 	request:function(options,callback){
-		full_options={
+		var full_options={
 			method:options.method?options.method:this.method,
 			url:this.base_url+options.url,
 		};
@@ -50,7 +50,7 @@ Wrapper.prototype={
 		var parse_body = this.parse_body;
 		// making the request
 		request(full_options, function (error, response) { 
-			if (error) callback(error);
+			if (error) return callback(error);
 			// var body = JSON.parse(response.body);
 			if(parse_body && response.body)
 				response.body=JSON.parse(response.body);
