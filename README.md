@@ -68,7 +68,81 @@ api.request(options,function(err,response){
 })
 ```
 
+### Examples
 
+#### Find many objects
+```
+var options = {
+	'url': '/invoices',
+	query:{
+		remote_id:invoice.remote_id,
+		type:'income',
+		seller_gst_no:invoice.seller_gst_no,
+		buyer_gst_no:invoice.buyer_gst_no
+	},
+};
+mralbert.request(options,function(err,response){
+	if (err) return callback(err);
+	callback(err,response.body);
+})
+```
+#### Find one
+```
+var options = {
+	'url': '/gstins',
+	query:{
+		value:config.client.gstin,
+	},
+};
+mralbert.request(options,function(err,response){
+	if (err) return callback(err);
+	if(response.body.length==0)
+		return callback('No GSTIN found');
+	if(response.body.length!=1)
+		return callback('More than one gstin found. Something is wrong');
+	customer_gstin=response.body[0];
+	callback(err,response.body[0]);
+})
+```
+
+#### Create object 
+```
+var options = {
+	'method':'POST',
+	'url': '/invoices',
+	body:invoice,
+};
+console.log(options);
+mralbert.request(options,function(err,response){
+	if (err) return callback(err);
+	// console.log(err);
+	console.log(response.body);
+	callback(err,response.body);
+})
+```
+Response will return the created object by default, fully populated
+
+#### Update one object
+```
+var options = {
+	method:'PATCH',
+	'url': '/invoices/'+invoice.id,
+	body: {
+		'remote_id': invoice.remote_id.trim(),
+		'seller_gst_no':invoice.seller_gst_no.trim(),
+		'buyer_gst_no':invoice.buyer_gst_no.trim()
+	}
+};
+// console.log(options);
+mralbert.request(options,function(err,response){
+	// console.log('err');
+	// console.log(err);
+	console.log(response.body.remote_id);
+	// callback(err,response.body);
+	next(err);
+})
+```
+Response will return the updated object.
 
 ### Supports multiple authentication strategies (coming soon)
 
